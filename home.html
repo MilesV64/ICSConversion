@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+    <meta charset="utf-8" />
+    <title>Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</html>
+
+<body>
+    <div class = "container">
+        <form action = "fileupload" method = "post" enctype="multipart/form-data">
+            <div class= "upload">
+                <div class = "inner">
+                    <label for="file" class="buttonLabel">
+                        Upload ICS File
+                    </label>
+                    <input id="file" type="file" name = "filetoupload"/><br>
+                    <label class = "fileDescription" id = "fileDescription"> No file chosen</label><br><br>
+                </div>
+            </div>
+            <div class = "form">
+                <label for="text">Enter a new starting date (MM/DD/YYYY)</label><br>
+                <input type="text" id="text" name="newdate"><br>
+                <input type="submit" value="Convert">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const file = document.getElementById('file');
+        file.onchange = function() {
+            const pathSplit = file.value.split("\\");
+            document.getElementById('fileDescription').innerHTML = pathSplit[pathSplit.length-1];
+        };
+        
+    </script>
+
+</body>
+
+
